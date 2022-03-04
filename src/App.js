@@ -9,7 +9,7 @@ class App extends Component{
     this.state = {
       // "phrase" is the text entered by the user - right now there are test words hard coded to make the process of testing your code faster and easier
       // ACTION ITEM: when you are ready for your full user experience, delete the test words so phrase is assigned an empty string
-      phrase: "alpha through yummy squeal queen fry",
+      phrase: "",
       // "phraseTranslated" is what the user will see appear on the page as Pig Latin, it starts as the preset message and updates when your user clicks the "submit" button
       phraseTranslated: "This is where your translated sentence will appear."
     }
@@ -29,11 +29,38 @@ class App extends Component{
       console.log("currentWord:", currentWord)
 
       let vowelsArray = currentWord.split("").filter(vowel => {
-        return vowel === "a" || vowel === "e" || vowel === "i" || vowel === "o" || vowel === "u"
+        return vowel === "a" || vowel === "e" || vowel === "i" || vowel === "o" || vowel === "u" 
       })
       console.log("vowelsArray:", vowelsArray)
 
       // your code here!
+      
+      // PSUEDO CODE!!!!!!
+      // Itterate conditional statements through array of user input.
+      // Make if conditionals run through currentWord (word string)
+
+      // Take currentWord and turn it into an array of letters
+      let letters = currentWord.split("")
+        console.log("letters:", letters)
+        // Itterate and check each letter if consonant
+      const letterChecker = () => {
+        if (letters[0]!== vowelsArray[0]) {
+          var consonant = letters[0]
+          // var consonant = letters.slice(1)
+          var result = consonant.concat(letters)
+          console.log("result:", result)
+        }
+      }
+     letterChecker()
+      // console.log("result:", result)
+      // If consonant move to the end of the array with slice + push
+      // If y at the beginning, then run consonant logic
+      // Keep running until run into first vowel, stops iterrating
+      // If first letter is q, check if next is u, if both true, then slice and push that array to the end.
+      // push ay at the end
+      // If vowel, just push way at the end
+      // Join array back into string
+      // Return translatedWordsArray 
 
       // Remember: console.log is your friend :)
 
@@ -57,7 +84,7 @@ class App extends Component{
     // this method restarts the game by setting the original state
     // ACTION ITEM: when you are ready for your full user experience, delete the test words in phrase so that is assigned an empty string
     this.setState({
-      phrase: "alpha through yummy squeal queen fry",
+      phrase: "",
       phraseTranslated: "This is where your translated sentence will appear."
     })
   }
@@ -99,7 +126,7 @@ class App extends Component{
           <button onClick={this.restartGame}>Clear</button>
         </div>
         <p>{this.state.phraseTranslated}</p>
-        <footer>Coded by ~your name here~</footer>
+        <footer>Coded by Jennice and Keelan</footer>
       </>
     )
   }
